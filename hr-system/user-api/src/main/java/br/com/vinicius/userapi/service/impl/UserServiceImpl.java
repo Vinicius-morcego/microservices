@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import br.com.vinicius.userapi.domain.User;
 import br.com.vinicius.userapi.repository.UserRepository;
 import br.com.vinicius.userapi.service.UserService;
+import br.com.vinicius.userapi.service.exception.ObjectNotFoundException;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
@@ -19,7 +20,8 @@ public class UserServiceImpl implements UserService{
 	
 	@Override
 	public User findById(Long id) {		
-		return userRepository.findById(id).orElse(null);
+		return userRepository.findById(id).orElseThrow(() -> 
+			new ObjectNotFoundException(String.format("Object the id %s not found", id)));
 	}
 
 	@Override
