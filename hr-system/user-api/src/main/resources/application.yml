@@ -1,0 +1,5 @@
+server:
+  port: 8000
+srping:
+  application:
+    name: user-api
