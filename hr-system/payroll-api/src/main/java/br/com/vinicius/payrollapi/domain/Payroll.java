@@ -8,7 +8,8 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class Payroll {
-	private String workName;
+	
+	private String workerName;
 	private String description;
 	private Double hourlyPrice;
 	private Double workedHours;
